@@ -33,7 +33,8 @@ public class FacadePerson implements IPersonFacade {
 
     @Override
     public Persons deletePerson(int id) {
-        EntityManager em = emf.createEntityManager();
+        EntityManagerFactory emfn = Persistence.createEntityManagerFactory("PA");
+        EntityManager em = emfn.createEntityManager();
 
         try {
             em.getTransaction().begin();
@@ -64,15 +65,17 @@ public class FacadePerson implements IPersonFacade {
 
     @Override
     public List<Persons> getPersons() {
-        EntityManager em = emf.createEntityManager();
-        Query query = em.createQuery("SELECT e FROM Person e");
+        EntityManagerFactory emfn = Persistence.createEntityManagerFactory("PA");
+        EntityManager em = emfn.createEntityManager();
+        Query query = em.createQuery("SELECT e FROM Persons e");
 
         return (List<Persons>) query.getResultList();
     }
 
     @Override
     public Persons editPerson(Persons p) {
-        EntityManager em = emf.createEntityManager();
+        EntityManagerFactory emfn = Persistence.createEntityManagerFactory("PA");
+        EntityManager em = emfn.createEntityManager();
 
         try {
             em.getTransaction().begin();

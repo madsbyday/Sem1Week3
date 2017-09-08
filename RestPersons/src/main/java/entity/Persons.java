@@ -38,6 +38,14 @@ public class Persons implements Serializable {
     public Persons() {
     }
 
+    public Persons(String firstname, String lastname, String phonenr) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.phonenr = phonenr;
+    }
+    
+    
+
     public Persons(Integer idpersons) {
         this.idpersons = idpersons;
     }
